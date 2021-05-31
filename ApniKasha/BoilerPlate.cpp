@@ -1,6 +1,6 @@
 //Boiler plate code
 #include <iostream>
-#include <math.h>
+#include <math.h> // for calling math functions 
 using namespace std;
 
 int main(){
@@ -40,5 +40,21 @@ int main(){
         cout<<endl;
     }
 
+    return 0;
+}
+
+// boiler plate code for array
+#include <iostream>
+using namespace std;
+
+int main(){
+    int n;
+    cin>>n;
+
+    int arr[n];
+
+    for(int i=0; i<n; i++){
+        cin>>arr[i];
+    }
     return 0;
 }

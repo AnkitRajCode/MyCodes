@@ -49,7 +49,7 @@ int addBinary(int a, int b)
                 prevCarry =0;
             }
         }
-        else{
+        else{ 
             ans = ans*10 + (a%2);
         }
         a/=10;
