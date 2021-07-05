@@ -4,7 +4,7 @@
 using namespace std;
 
 int main(){
-    int n;
+    int n;  
     cin>>n;
 
     return 0;
@@ -26,6 +26,7 @@ int main(){
     return 0;
 }
 
+//TODO: PATTERN
 //Boilerplate code for pattern Question
 #include <iostream>
 using namespace std;
@@ -43,6 +44,7 @@ int main(){
     return 0;
 }
 
+//TODO: ARRAY
 // boiler plate code for array
 #include <bits/stdc++.h> // when you will use this the no other library is require
 #include <iostream>
@@ -88,3 +90,20 @@ int main(){
 //     }
 //     cout<<"endl";
 // }
+
+//TODO:POINTER
+#include <iostream>
+using namespace std;
+
+int main(){
+
+    int a = 10;
+    int *aptr;
+    aptr = &a;
+
+    cout<< &a << endl;
+    cout<< aptr << endl;
+    cout<< *aptr << endl;
+    return 0;
+}
+
