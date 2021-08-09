@@ -91,7 +91,7 @@ int main(){
 //     cout<<"endl";
 // }
 
-//TODO:POINTER
+//TODO: POINTER
 #include <iostream>
 using namespace std;
 
@@ -107,3 +107,17 @@ int main(){
     return 0;
 }
 
+
+// TODO: STRING
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+int main(){
+    string str;
+    cin>> str;
+    cout<< str;
+
+    return 0;
+}
