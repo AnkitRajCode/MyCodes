@@ -15,7 +15,7 @@ int main(){
     // string str1(5, 'n');
     // cout << str1 << endl;
 
-    // string str2 = "AnkitRaj"; <!-- you can see we are not using spae between Ankit and Raj -->
+    // string str2 = "AnkitRaj"; <!-- you can see we are not using space between Ankit and Raj -->
     // cout << str2;
 
     //this is to take input of a whole sentence
