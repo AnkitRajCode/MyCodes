@@ -6,6 +6,7 @@
         "IthBitSet.C": "cpp",
         "setEvenBit.C": "cpp",
         "swapNnumbers.C": "cpp",
-        "swapkbaadwala.C": "cpp"
+        "swapkbaadwala.C": "cpp",
+        "Pattern.C": "cpp"
     }
 }
