@@ -2,20 +2,20 @@
 #include<iostream>
 using namespace std;
 
-string duplicates(string s){
+string moveAllX(string s){
     if(s.length() == 0){ //base case
         return "";
     }
 
     char ch=s[0];
-    string ans = duplicates(s.substr(1));
+    string ans = moveAllX(s.substr(1));
 
-    if(ch==ans[0]){
-        return ans;
+    if(ch=='x'){
+        return ans+ch;
     } 
-    return (ch+ans);
+    return ch+ans;
 }
 int main(){
-    cout<<duplicates("aaaabbbeeecdddd");
+    cout<<moveAllX("axxbdxcefxhix");
     return 0;
 }
