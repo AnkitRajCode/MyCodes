@@ -123,4 +123,8 @@ int main(){
     return 0;
 }
 
-// TODO: Bit Manipulation
+// TODO: Backtracking
+// Backtracking is an algorithmic-technique for solving recursive problems by tring to build every
+// posssible solution incrementally and removing those solutions thst fail to satisy the constraints
+// of the problem at any point of time.
+
