@@ -7,6 +7,8 @@
         "setEvenBit.C": "cpp",
         "swapNnumbers.C": "cpp",
         "swapkbaadwala.C": "cpp",
-        "Pattern.C": "cpp"
+        "Pattern.C": "cpp",
+        "typeindex": "cpp",
+        "typeinfo": "cpp"
     }
 }
