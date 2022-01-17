@@ -3,7 +3,7 @@
 using namespace std;
 
 int main(){
-    vector<int>v;
+    vector<int> v;
     v.push_back(1);
     v.push_back(2);
     v.push_back(3);
@@ -45,7 +45,7 @@ int main(){
     // v2 : 1 2
 
 
-    // Sort(v.begin(),v.end());
+    // sort(v.begin(),v.end());
     // we use this to short vectors
 
     // std::pair is STL value use to store values in pair
