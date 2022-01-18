@@ -32,5 +32,3 @@ elif [[ "$TARGET_FILE" =~ ".txt" ]];then
 	echo "Text to Morse code:";
 	TO_MORSE "$TARGET_FILE"
 fi
-
-
