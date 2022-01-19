@@ -1,3 +1,5 @@
+cat Question3.sh
+
 #!/bin/bash
 
 FILE="$1"

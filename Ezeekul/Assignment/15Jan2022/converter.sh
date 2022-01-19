@@ -2,7 +2,6 @@
 #Desc: This code is used to convert text to morse code and morse code to text.
 #Algo: ------
 #Run: bash Question1.sh < filename.txt/filename.morse > 
-#Using  if elif nesting i checked the characerrs in the line  and stored them in a  declared variable s and echoed the stored string at the end 
 
 FILE="$1"
 CONVERT_TO_MORSE(){
