@@ -2,8 +2,9 @@
 int main() {
    // printf() displays the string inside quotation
    
-   printf("Hello, World!");
+   printf("HelloWorld!");
    return 0;
-   /* multiple __LINE__
-   thgis also */
+   /* multi
+   line
+   comment */
 }
