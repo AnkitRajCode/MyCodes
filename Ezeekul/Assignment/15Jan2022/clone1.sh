@@ -129,12 +129,12 @@ CONVERT_TO_MORSE(){
         elif [[ $x == "" ]];
         then 
             s+="/ "
-        elif [[ $x == "\n" ]];
+        elif [[ $x == * ]];
         then 
-            s+="\n "
+            s+="@"
         
     fi
-    echo -n  $s
+    echo -n "$s"
 			s=''
     done < $1
 }

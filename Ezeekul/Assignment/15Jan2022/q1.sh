@@ -1,96 +1,281 @@
-#Name - Ashish Kumar Mishra
-#Roll Number - 1906466
-#Description - This script is used to convert text to morse code and vice versa.
+#!/bin/bash
+#Desc: This code is used to convert text to morse code and morse code to text.
+#Algo: first I take command through command line args then using regex I detect .text / .morse extension then using if-else operation I trigger function in it and then using while loop i read line by line character and then storing it in a variable and then matching then variable with its respective characters and printing their morse code I have done text to morse using if else and morse to text using switch case there I m reading word by word using IFS. so that i can get morse code in a variable 
+#Run: bash Question1.sh < filename.txt/filename.morse > 
 
-
-#Execution (text to morse code) - "bash q1.sh [filename.txt ]"
-
-#Execution (morse code to text) - "bash q1.sh [filename.morse ]"
-
-
-#Algorithm - To convert a text to morse code we have taken a Associative array which acts like Hashmaps. Afterthat we have to read the string character by character and compare it with the array and print the corresponding morse code.
-
-
-#To convert a morse code to text we have taken two different arrays one for the morse code and other for the text. We initialize a string variable with empty value and we will scan the input file charcter by character and keep on adding the character to the string until we get a space. Then we compare the string with the array and print the corresponding text.
-
-#!bin/bash
-declare -A morse
-morse[0]='- - - - -'
-morse[1]='. - - - -'
-morse[2]='. . - - -'
-morse[3]='. . . - -'
-morse[4]='. . . . -'
-morse[5]='. . . . .'
-morse[6]='- . . . .'
-morse[7]='- - . . .'
-morse[8]='- - - . .'
-morse[9]='- - - - .'
-morse[A]='. -'
-morse[B]='- . . .'
-morse[C]='- . - .'
-morse[D]='- . .'
-morse[E]='.'
-morse[F]='. . - .'
-morse[G]='- - .'
-morse[H]='. . . .'
-morse[I]='. .'
-morse[J]='. - - -'
-morse[K]='- . -'
-morse[L]='. - . .'
-morse[M]='- -'
-morse[N]='- .'
-morse[O]='- - -'
-morse[P]='. - - .'
-morse[Q]='- - . -'
-morse[R]='. - .'
-morse[S]='. . .'
-morse[T]='-'
-morse[U]='. . -'
-morse[V]='. . . -'
-morse[W]='. - -'
-morse[X]='- . . -'
-morse[Y]='- . - -'
-morse[Z]='- - . .'
-
-declare -a arr=("A" "B" "C" "D" "E" "F" "G" "H" "I" "J" "K" "L" "M" "N" "O" "P" "Q" "R" "S" "T" "U" "V" "W" "X" "Y" "Z" "O" "1" "2" "3" "4" "5" "6" "7" "8" "9" "." "," "?" "=")
-declare -a arr1=(".-" "-..." "-.-." "-.." "." "..-." "--." "...." ".." ".---" "-.-" ".-.." "--" "-." "---" ".--." "--.-" ".-." "..." "-" "..-" "...-" ".--" "-..-" "-.--" "--.." "-----" ".----" "..---" "...--" "....-" "....." "-...." "--..." "---.." "----." ".-.-.-" "--..--" "..--.." "-...-")
-#######################################
-file=$1
-l="${#arr[@]}"
-l1="${#arr1[@]}"
-
-if [ "${file: -4}" == ".txt" ]
-then
-    cat $file | while read -rN1 c;
+FILE="$1"
+CONVERT_TO_MORSE(){
+    s=''
+    while read -rN1 x;
     do
-        c=${c^}
-        if [[ $c == $'\n' ]]; then
-            printf '\n'
-            elif [[ $c == ' ' ]]; then
-            printf '       '
-        else
-            printf '%s   ' "${morse[$c]}" >> final.morse
-        fi
+        if [[ ${x^} == "A" ]];
+        then s+=".- " 
+        elif [[ ${x^} == "B" ]];
+        then  s+="-... "
+        elif [[ ${x^} == "C" ]];
+        then    
+        s+="-.-. "
+        elif [[ ${x^} == "D" ]];
+        then 
+        s+="-.. "
+        elif [[ ${x^} == "E" ]];
+        then 
+        s+=". "
+        elif [[ ${x^} == "F" ]];
+        then 
+        s+="..-. "
+        elif [[ ${x^} == "G" ]];
+        then 
+        s+="--. "
+        elif [[ ${x^} == "H" ]];
+        then 
+        s+=".... "
+        elif [[ ${x^} == "I" ]];
+        then 
+        s+=".. "
+        elif [[ ${x^} == "J" ]];
+        then 
+        s+=".--- "
+        elif [[ ${x^} == "K" ]];
+        then 
+        s+="-.- "
+        elif [[ ${x^} == "L" ]];
+        then 
+        s+=".-.. "
+        elif [[ ${x^} == "M" ]];
+        then 
+        s+="-- "
+        elif [[ ${x^} == "N" ]];
+        then 
+        s+="-. "
+        elif [[ ${x^} == "O" ]];
+        then 
+            s+="--- "
+        elif [[ ${x^} == "P" ]];
+        then 
+            s+=".--. "
+        elif [[ ${x^} == "Q" ]];
+        then 
+            s+="--.- "
+        elif [[ ${x^} == "R" ]];
+        then 
+            s+=".-. "
+        elif [[ ${x^} == "S" ]];
+        then 
+            s+="... "
+        elif [[ ${x^} == "T" ]];
+        then 
+            s+="- "
+        elif [[ ${x^} == "U" ]];
+        then 
+            s+="..- "
+        elif [[ ${x^} == "V" ]];
+        then 
+            s+="...- "
+        elif [[ ${x^} == "W" ]];
+        then 
+            s+=".-- "
+        elif [[ ${x^} == "X" ]];
+        then 
+            s+="-..- "
+        elif [[ ${x^} == "Y" ]];
+        then 
+            s+=".-.. "
+        elif [[ ${x^} == "Z" ]];
+        then 
+            s+="--.. "
+        elif [[ $x == "0" ]];
+        then 
+            s+="----- " 
+        elif [[ $x == "1" ]];
+        then 
+            s+=".---- "
+        elif [[ $x == "2" ]];
+        then
+            s+="..--- "
+        elif [[ $x == "3" ]];
+        then
+            s+="...-- "
+        elif [[ $x == "4" ]];
+        then
+            s+="....- "
+        elif [[ $x == "5" ]];
+        then
+            s+="..... "
+        elif [[ $x == "6" ]];
+        then
+            s+="-.... "
+        elif [[ $x == "7" ]];
+        then
+            s+="--... "
+        elif [[ $x == "8" ]];
+        then
+            s+="---.. "
+        elif [[ $x == "9" ]];
+        then
+            s+="----. "
+        elif [[ $x == "." ]];
+        then
+            s+=".-.-.- "
+        elif [[ $x == "," ]];
+        then
+            s+="--..-- "
+        elif [[ $x == "?" ]];
+        then
+            s+="..--.. "
+        elif [[ $x == "=" ]];
+        then
+            s+="-...- "
+        elif [[ $x == " " ]];
+        then 
+            s+="/ "
+        elif [[ $x == $'\n' ]];
+        then 
+            s+='\n'
+    fi
+    done < $1
+	printf "$s"
+}
+CONVERT_TO_TEXT(){
+    cat $FILE | tr -s '[:blank:]' '[\n*]' |
+    while IFS= read -r word
+    do
+        case $word in
+            ".-")
+                echo -n "A"
+                ;;
+            "-...")
+                echo -n "B"
+                ;;
+            "-.-.")
+                echo -n "C"
+                ;;
+            "-..")
+                echo -n "D"
+                ;;
+            ".")
+                echo -n  "E"
+                ;;
+            "..-.")
+                echo -n "F"
+                ;;
+            "--.")
+                echo -n "G"
+                ;;
+            "....")
+                echo -n "H"
+                ;;
+            "..")
+                echo -n "I"
+                ;;
+            ".---")
+                echo -n "J"
+                ;;
+            "-.-")
+                echo -n "K"
+                ;;
+            ".-..")
+                echo -n "L"
+                ;;
+            "--")
+                echo -n "M"
+                ;;
+            "-.")
+                echo -n "N"
+                ;;
+            "---")
+                echo -n "O"
+                ;;
+            ".--.")
+                echo -n "P"
+                ;;
+            "--.-")
+                echo -n "Q"
+                ;;
+            ".-.")
+                echo -n "R"
+                ;;
+            "...")
+                echo -n "S"
+                ;;
+            "-")
+                echo -n "T"
+                ;;
+            "..-")
+                echo -n "U"
+                ;;
+            "...-")
+                echo -n "V"
+                ;;
+            ".--")
+                echo -n "W"
+                ;;
+            "-..-")
+                echo -n "X"
+                ;;
+            "-.--")
+                echo -n "Y"
+                ;;
+            "--..")
+                echo -n "Z"
+                ;;
+            "-----")
+                echo -n "0"
+                ;;
+            ".----")
+                echo -n "1"
+                ;;
+            "..---")
+                echo -n "2"
+                ;;
+            "...--" )
+            echo -n "3"
+            ;;
+            "....-")
+                echo -n "4"
+                ;;
+            ".....")
+                echo -n "5"
+                ;;
+            "-....")
+                echo -n "6"
+                ;;
+            "--...")
+                echo -n "7"
+                ;;
+            "---..")
+                echo -n "8"
+                ;;
+            "----.")
+                echo -n "9"
+                ;;
+            ".-.-.-")
+                echo -n "."
+                ;;
+            "--..--")
+                echo -n ","
+                    ;;
+            "..--..")
+                echo -n "?"
+                ;;
+            "-...-")
+                echo -n "="
+                ;;
+            "/")
+                echo -n " "
+                ;;
+            *)
+                echo -n "@"
+                ;;
+        esac
     done
-else
-    if [ "${file: -6}" == ".morse" ]
+}
+
+if [[ "$1" =~ ".txt" ]];
     then
-        str=""
-        while IFS= read -N1 ch
-        do
-            if [ "$ch" != ' ' ];then
-                str+="$ch"
-            else
-                for (( j=0; j<l1; j++));
-                do
-                    if [[ "$str" == "${arr1[$j]}" ]]; then
-                        echo -n "${arr[$j]}" >> final1.txt
-                        echo -n " " >> final1.txt
-                    fi
-                done
-                str=""
-            fi
-        done < "$file"
-    fi    
+    CONVERT_TO_MORSE "$FILE"
+
+elif [[ "$1" =~ ".morse" ]];
+    then
+    CONVERT_TO_TEXT "$FILE"
 fi
-clear

@@ -8,8 +8,8 @@ then
         then
                 while read -n1 c
                 do
-                        b=$(echo $c | tr [:lower:] [:upper:])
-                        case $b in
+                        # b=$(echo $c | tr [:lower:] [:upper:])
+                        case ${c^} in
                                 "A")
                                         echo -n ".- "
                                         ;;
@@ -185,7 +185,7 @@ then
                 cat $1 | tr -s '[:blank:]' '[\n*]' |
                 while IFS= read -r word
                 do
-
+                # echo $word
                         case $word in
                                     ".-")
                                                 echo -n "A"

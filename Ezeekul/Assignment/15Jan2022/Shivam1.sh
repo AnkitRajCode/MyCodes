@@ -1,12 +1,12 @@
 #!/bin/bash
-if [ "${1: -4}" == ".txt" ]
+if [ "${1: -4}" == ".txt" ]	#identifying the file extension
 	then
 		file=$1
-		s=''
-		while read line; do
-			temp=$line
-			for (( i=0; i<${#temp}; i++ )); do
-				if [[ "${temp:$i:1}" == "a" || "${temp:$i:1}" == "A" ]]
+		s=''		
+		while read line; do		#reading each lines of the file
+			temp=$line				
+			for (( i=0; i<${#temp}; i++ )); do   #iterating through each line
+				if [[ "${temp:$i:1}" == "a" || "${temp:$i:1}" == "A" ]]    #checking for each characters in the line and converting it into it's respective morse code and adding it to a string s
 					then s+=".- "
 				elif [[ "${temp:$i:1}" == "b" || "${temp:$i:1}" == "B" ]]
 					then s+="-... "
@@ -92,22 +92,21 @@ if [ "${1: -4}" == ".txt" ]
 					echo "invalid character"
 				fi
 			done
-			echo $s
+			echo $s	#priting the resultant string in the console
 			s=''
 		done < $file
 
-elif [ "${1: -6}" == ".morse" ]
+elif [ "${1: -6}" == ".morse" ]	#identifying the file extension
 	then
 		file=$1
-		while read line; do
-			#echo $line
+		while read line; do	#reading each lines of the file
 			temp=$line
 			s=''
 			t=''
-			for (( i=0; i<${#temp}; i++ )); do
-				if [[ "${temp:$i:1}" != " " && i+1 -lt ${#temp} ]]
+			for (( i=0; i<${#temp}; i++ )); do   #iterating each lines
+				if [[ "${temp:$i:1}" != " " && i+1 -lt ${#temp} ]]	#checking for each character in the line and adding it in the string if there is no space
 					then s+="${temp:$i:1}"
-				else
+				else							#if there is space then we check for the resultant morse code and get the text for that particular morse code
 					if [[ i+1 -eq ${#temp} ]]
 						then s+="${temp:$i:1}"
 					fi
@@ -194,13 +193,20 @@ elif [ "${1: -6}" == ".morse" ]
 					elif [[ "$s" == "/" ]]
 						then t+=" "
 					fi
-					s=''
+					s=''				#emptying the string
 				fi
 			
 			done
-			echo $t
+			echo $t					#printing the resultant string
 		done < $file
 			
 else
 	echo "Invalid file"
 fi
+
+
+#ALGORITHM :
+#Detecting the file extension, if the file extension is .txt the code will convert the text to morse
+# or if the file extension is .morse, the code will convert the morse code to text
+# In the first case character is extracted line by line and compared using if-else to convert it to the respective morse code
+# In the second case each character is extracted until a space is found and then that morse code is checked to extract a word and then finally converting it to it's letter.
