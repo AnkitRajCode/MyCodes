@@ -5,138 +5,137 @@
 
 FILE="$1"
 CONVERT_TO_MORSE(){
+    s=''
     while read -n1 x;
     do
         if [[ ${x^} == "A" ]];
-        then 
-        echo -n ".- a" 
+        then s+=".- a" 
         elif [[ ${x^} == "B" ]];
-        then 
-        echo -n "-... b"
+        then  s+="-... b"
         elif [[ ${x^} == "C" ]];
         then    
-        echo -n "-.-. c"
+        s+="-.-. c"
         elif [[ ${x^} == "D" ]];
         then 
-        echo -n "-.. d"
+        s+="-.. d"
         elif [[ ${x^} == "E" ]];
         then 
-        echo -n ". e"
+        s+=". e"
         elif [[ ${x^} == "F" ]];
         then 
-        echo -n "..-. f"
+        s+="..-. f"
         elif [[ ${x^} == "G" ]];
         then 
-        echo -n "--. g"
+        s+="--. g"
         elif [[ ${x^} == "H" ]];
         then 
-        echo -n ".... h"
+        s+=".... h"
         elif [[ ${x^} == "I" ]];
         then 
-        echo -n ".. i"
+        s+=".. i"
         elif [[ ${x^} == "J" ]];
         then 
-        echo -n ".--- j"
+        s+=".--- j"
         elif [[ ${x^} == "K" ]];
         then 
-        echo -n "-.- k"
+        s+="-.- k"
         elif [[ ${x^} == "L" ]];
         then 
-        echo -n ".-.. l"
+        s+=".-.. l"
         elif [[ ${x^} == "M" ]];
         then 
-        echo -n "-- m"
+        s+="-- m"
         elif [[ ${x^} == "N" ]];
         then 
-        echo -n "-. n"
+        s+="-. n"
         elif [[ ${x^} == "O" ]];
         then 
-            echo -n "--- o"
+            s+="--- o"
         elif [[ ${x^} == "P" ]];
         then 
-            echo -n ".--. p"
+            s+=".--. p"
         elif [[ ${x^} == "Q" ]];
         then 
-            echo -n "--.- q"
+            s+="--.- q"
         elif [[ ${x^} == "R" ]];
         then 
-            echo -n ".-. r"
+            s+=".-. r"
         elif [[ ${x^} == "S" ]];
         then 
-            echo -n "... s"
+            s+="... s"
         elif [[ ${x^} == "T" ]];
         then 
-            echo -n "- t"
+            s+="- t"
         elif [[ ${x^} == "U" ]];
         then 
-            echo -n "..- u"
+            s+="..- u"
         elif [[ ${x^} == "V" ]];
         then 
-            echo -n "...- v"
+            s+="...- v"
         elif [[ ${x^} == "W" ]];
         then 
-            echo -n ".-- w"
+            s+=".-- w"
         elif [[ ${x^} == "X" ]];
         then 
-            echo -n "-..- x"
+            s+="-..- x"
         elif [[ ${x^} == "Y" ]];
         then 
-            echo -n ".-.. y"
+            s+=".-.. y"
         elif [[ ${x^} == "Z" ]];
         then 
-            echo -n "--.. z"
+            s+="--.. z"
         elif [[ ${x^} == "0" ]];
         then 
-            echo -n "----- " 
+            s+="----- " 
         elif [[ $x == "1" ]];
         then 
-            echo -n ".---- "
+            s+=".---- "
         elif [[ $x == "2" ]];
         then
-            echo -n "..--- "
+            s+="..--- "
         elif [[ $x == "3" ]];
         then
-            echo -n "...-- "
+            s+="...-- "
         elif [[ $x == "4" ]];
         then
-            echo -n "....- "
+            s+="....- "
         elif [[ $x == "5" ]];
         then
-            echo -n "..... "
+            s+="..... "
         elif [[ $x == "6" ]];
         then
-            echo -n "-.... "
+            s+="-.... "
         elif [[ $x == "7" ]];
         then
-            echo -n "--... "
+            s+="--... "
         elif [[ $x == "8" ]];
         then
-            echo -n "---.. "
+            s+="---.. "
         elif [[ $x == "9" ]];
         then
-            echo -n "----. "
+            s+="----. "
         elif [[ $x == "." ]];
         then
-            echo -n ".-.-.- "
+            s+=".-.-.- "
         elif [[ $x == "," ]];
         then
-            echo -n "--..-- "
+            s+="--..-- "
         elif [[ $x == "?" ]];
         then
-            echo -n "..--.. "
+            s+="..--.. "
         elif [[ $x == "=" ]];
         then
-            echo -n "-...- "
+            s+="-...- "
         elif [[ $x == "" ]];
         then 
-            echo -n "/ "
-        elif [[ $x == * ]];
+            s+="/ "
+        elif [[ $x == "\n" ]];
         then 
-            echo -n "@ "
-        elif [[ $x == \n ]];
-        then 
-            echo -n "\n "
+            s+="\n "
+        
     fi
+    echo -n  $s
+			s=''
     done < $1
 }
 
