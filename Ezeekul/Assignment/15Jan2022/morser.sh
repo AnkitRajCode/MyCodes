@@ -18,7 +18,7 @@ TO_MORSE(){
 	while read -n1 x;
        	do
 		if [[ "$x" == [A-Z] || "$x" == [0-9] ]];then
-			echo "${MORSE_CODE[$x]}"
+			echo -n "${MORSE_CODE[$x]}"  
 		fi
 	done < $1
 }
@@ -27,7 +27,7 @@ TO_TEXT(){
 	while read -n1 x;
        	do
 		if [[ "$x" == [A-Z] || "$x" == [0-9] ]];then
-			echo "${TEXT_MAP[$x]}"
+			echo -n "${TEXT_MAP[$x]}"
 		fi
 	done < $1
 }

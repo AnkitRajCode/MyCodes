@@ -100,9 +100,9 @@ then
           
           if [ $ct -gt -1 ];                     
           then
-               echo  "$c -> ${ma[$ct]}"         
+               echo -n  "$c -> ${ma[$ct]}"         
           else
-               echo  " "           
+               echo -n " "           
           fi
           
      done <$file
@@ -123,9 +123,9 @@ then
           
           if [ $ct -gt -1 ];                        
           then
-               echo  "$l -> ${ta[$ct]}"        
+               echo -n "$l -> ${ta[$ct]}"        
           else
-               echo  " "           
+               echo -n " "           
           fi
 	  
           
