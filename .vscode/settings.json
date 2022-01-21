@@ -1,5 +1,14 @@
 {
     "files.associations": {
-        "comment.C": "cpp"
+        "random": "cpp",
+        "iostream": "cpp",
+        "CountOne.C": "cpp",
+        "IthBitSet.C": "cpp",
+        "setEvenBit.C": "cpp",
+        "swapNnumbers.C": "cpp",
+        "swapkbaadwala.C": "cpp",
+        "Pattern.C": "cpp",
+        "typeindex": "cpp",
+        "typeinfo": "cpp"
     }
 }
