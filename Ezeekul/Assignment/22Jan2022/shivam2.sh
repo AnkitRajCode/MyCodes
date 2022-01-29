@@ -1,5 +1,4 @@
 #!bin/bash
-
 file=$1
 max=0
 res=''
