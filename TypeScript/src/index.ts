@@ -150,3 +150,25 @@ brad.name = 'shubham Singh';
 console.log(brad,mike);
 console.log(brad.register());
 
+//subclass
+class Employee extends personClass{
+    position: string;
+    constructor(id: number, name: string, position: string) {
+        super(id, name);
+        this.position = position;
+    }
+}
+const emp = new Employee(160, 'john', 'Software Engineer');
+console.log(emp);
+
+//Generics
+function getArray<T>(items: T[]): T[]{ 
+    return new Array().concat(items);
+}
+
+let numArray = getArray<number>([1,2,3,4,5]);
+let strArray = getArray<string>(['Ankit','Shubham','Satyajeet']);
+
+numArray.push(534);
+
+console.log(numArray);
