@@ -32,17 +32,7 @@ for (var i = 0; i < 6; i++) {
     addDataRow(i);
 }
 
-function addBookRow(username) {
-    var tableRef = document.getElementById("info-table");
-    tableRef.insertRow(-1).innerHTML =
-        `<tr><td>${tableRef.rows.length-1}</td>
-        <td><input type="text" id="titleId"  placeholder="title"></td>
-<td><input type="text" id="authorId"  placeholder="author"></td>
-<td>${username}</td>
-<td>-</td>
-<td><button id="addbook" onclick="addNewBook()">Add book</button></td> 
-</tr>`;
-}
+
 
 function changeLoggedInUser() {
     if (username === document.getElementById("logged-user").value && user.indexOf(username) !== -1) {
@@ -117,6 +107,18 @@ function addNewBook() {
         else
             alert("Enter the title of Book!!!");
     }
+}
+
+function addBookRow(username) {
+    var tableRef = document.getElementById("info-table");
+    tableRef.insertRow(-1).innerHTML =
+        `<tr><td>${tableRef.rows.length-1}</td>
+        <td><input type="text" id="titleId"  placeholder="title"></td>
+<td><input type="text" id="authorId"  placeholder="author"></td>
+<td>${username}</td>
+<td>-</td>
+<td><button id="addbook" onclick="addNewBook()">Add book</button></td> 
+</tr>`;
 }
 
 function returnClick(i) {

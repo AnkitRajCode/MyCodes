@@ -1,117 +1,131 @@
 // Write your code here!
-var tableData = [
-    { 'id': '1', 'Book': 'Book1', 'Author': 'Author1', 'Lender': 'UserC', 'Borrower':'UserB', 'Action': '' },
-    { 'id': '2', 'Book': 'Book2', 'Author': 'Author2', 'Lender': 'UserC', 'Borrower':'-', 'Action': '' },
-    { 'id': '3', 'Book': 'Book3', 'Author': 'Author3', 'Lender': 'UserD', 'Borrower':'UserB', 'Action': '' },
-    { 'id': '4', 'Book': 'Book4', 'Author': 'Author4', 'Lender': 'UserA', 'Borrower':'-', 'Action': '' },
-    { 'id': '5', 'Book': 'Book5', 'Author': 'Author5', 'Lender': 'UserA', 'Borrower':'-', 'Action': '' },
-    { 'id': '6', 'Book': 'Book6', 'Author': 'Author6', 'Lender': 'UserB', 'Borrower':'UserA', 'Action': '' },
-]
-buildTable(tableData);
+let bookName = [ 'Book1', 'Book2', 'Book3', 'Book4', 'Book5', 'Book6' ];
+let author = [ 'Author1', 'Author2', 'Author3', 'Author4', 'Author5', 'Author6' ];
+let user = [ 'UserA', 'UserB', 'UserC', 'UserD' ];
+let lender = [ 'UserC', 'UserC', 'UserD', 'UserA', 'UserA', 'UserB' ];
+let borrower = [ 'UserB', '-', 'UserC', '-', '-', 'UserA' ];
+let action = '-';
 
-function buildTable(data) {
-    var table = document.getElementById('info-table');
+let buildTable = document.getElementById("info-table");
 
-    for (var i = 0; i < data.length; i++) {
-        var row = `<tr>
-            <td>${data[i].id}</td>
-            <td>${data[i].Book}</td>
-            <td>${data[i].Author}</td>
-            <td>${data[i].Lender}</td>
-            <td>${data[i].Borrower}</td>
-            <td>${data[i].Action}</td>
-
-        </tr>`
-        table.innerHTML += row;
+const tableData = () => {
+    for (var i = 0; i < 6; i++) {
+        var row = buildTable.insertRow(-1);
+        row.innerHTML = `<tr>
+            <td>${i+1}</td>
+            <td>${bookName[i]}</td>
+            <td>${author[i]}</td>
+            <td>${lender[i]}</td>
+            <td>${borrower[i]}</td>
+            <td>${action}</td>
+        </tr>`;
     }
 }
 
-var userHeader = document.getElementById('logged-in-user-name'); // table k uppar message dikhane k liye ki user logged in hai ki nahi
-var loginInput = document.getElementById('logged-user'); // input field call kiye hai
-var username;
+tableData();
 
-userHeader.innerHTML = "<b>No user logged in</b>";
-// Login 
-var changeLoggedInUser = () => { //login button function
-    if(loginInput.value === username) { // if user input is same as username
-        alert("User is already logged in"); 
+let userlogin = 0;
+let userId;
+let userHeader = document.getElementById('logged-in-user-name'); 
+let loginInput = document.getElementById('logged-user'); 
+userHeader.innerHTML = "No user logged in";
 
-    } else if(loginInput.value === "") {
-        alert("Please enter a username"); // if user didn't enter a username then alert
-        userHeader.innerHTML = "<b>No user logged in</b>"; // if user didn't enter a username then user logged in ki message ko remove krna hai
-    }
+const changeLoggedInUser = () => {
+    if (userId === loginInput.value && user.indexOf(userId) !== -1) {
+        alert("Already logged in!");
+    } 
     else {
-        username = loginInput.value; //input field k under ka value username mai chala jayega 
-        for(var i = 0; i < tableData.length; i++) {
-            if(tableData[i].Lender === username) {
-                userHeader.innerHTML = "<b>Logged in as: " + username + "</b>";// yaha display ho jayega logged in user ka nam table k uppar
-                addBookTableRow (username);
-                break; 
+        userId = loginInput.value;
+        if (user.indexOf(userId) === -1) {
+            userHeader.innerHTML = "No user logged in";
+
+            if (userlogin === 1){
+                let count = buildTable.rows.length;
+                buildTable.deleteRow(count - 1);
+                userlogin = 0;
             }
-            else if(tableData[i].Lender !== username){
-                userHeader.innerHTML = "<b>No user logged in</b>";
+            
+            for (var i = 1; i < buildTable.rows.length; i++) {
+                buildTable.rows[i].cells[5].innerHTML = "-";
+            }
+        } 
+        else{
+            userHeader.innerHTML = ` <span>Logged in user: ${userId} </span>`;
+
+            if (userlogin === 0) {
+                addBookTableRow(userId);
+                userlogin = 1;
+            }
+
+            if (userlogin === 1) {
+                let count = buildTable.rows.length;
+                buildTable.deleteRow(count - 1);
+                addBookTableRow(userId);
+            }
+            
+            for (var i = 1; i < buildTable.rows.length - 1; i++){
+                if(buildTable.rows[i].cells[4].textContent === userId && buildTable.rows[i].cells[5].textContent === "-"){
+                    buildTable.rows[i].cells[5].innerHTML = `<button id="return" onclick="returnBtn(${i})">Return</button>`;
+                } 
+                else if(buildTable.rows[i].cells[4].textContent === "-" && buildTable.rows[i].cells[3].textContent !== userId){
+                    buildTable.rows[i].cells[5].innerHTML = `<button id="borrow" onclick="borrowBtn(${i})">Borrow</button>`;
+                } 
+                else{
+                    buildTable.rows[i].cells[5].innerHTML = "-";
+                }
             }
         }
     }
 }
 
-var addBookTableRow = (username) => {
-    var infoTable = document.getElementById("info-table");
-    infoTable.insertRow(-1).innerHTML =`<tr><td>${infoTable.rows.length-1}</td>
-        <td><input type="text" id="book-name" placeholder="title"></td>
-        <td><input type="text" id="author-name" placeholder="author"></td>
-        <td id="lender-name">${username}</td>
+const newBook = () => {
+    let bookTitle = document.getElementById("book-name").value;
+    let authorName = document.getElementById("author-name").value;
+    if (bookTitle.length > 0 && authorName.length > 0 && bookName.indexOf(bookTitle) === -1) {
+        bookName.push(bookTitle);
+        let count = buildTable.rows.length;
+        buildTable.deleteRow(count - 1);
+        buildTable.insertRow(-1).innerHTML = `<tr>
+            <td>${buildTable.rows.length-1}</td>
+            <td>${bookTitle}</td>
+            <td>${authorName}</td>
+            <td>${userId}</td>
+            <td>-</td>
+            <td>-</td>
+        </tr>`;
+        addBookTableRow(userId);
+    } else if (bookName.indexOf(bookTitle) !== -1) {
+        alert("Book already exists!");
+    } else {
+        if (bookTitle.length === 0 && authorName.length === 0){
+            alert("Enter The Required field!");
+        }
+        else if (authorName.length === 0){
+            alert("Enter The Author Name!");
+        }
+        else if (bookTitle.length === 0){
+            alert("Enter The Book Title!");
+        }
+    }
+}
+
+const addBookTableRow = (userId) =>  {
+    buildTable.insertRow(-1).innerHTML =`<tr>
+        <td>${buildTable.rows.length-1}</td>
+        <td><input type="text" id="book-name" placeholder="Title" ></td>
+        <td><input type="text" id="author-name" placeholder="Author" ></td>
+        <td id="lender-name" >${userId}</td>
         <td>-</td>
-        <td><button id="addbook" onclick="addBook()">Add book</button></td> 
-    </tr>`
+        <td><button onclick="newBook()" >Add Book</button></td> 
+    </tr>`;
 }
 
-var addBook = () => {
-    var bookName = document.getElementById("book-name").value;
-    var authorName = document.getElementById("author-name").value;
-    var lenderName = document.getElementById("lender-name").innerHTML;
-    var book = {
-        'id': infoTable.rows.length,
-        'Book': bookName,
-        'Author': authorName,
-        'Lender': lenderName,
-        'Borrower': '',
-        'Action': '<button onclick="borrowBook(this)">Borrow</button>'
-    }
-    tableData.push(book);
-    buildTable(tableData);
+const returnBtn = (click) => {
+    buildTable.rows[click].cells[5].innerHTML = `<button id="borrow" onclick="borrowBtn(${click})" >Borrow</button>`;
+    buildTable.rows[click].cells[4].innerHTML = "-";
 }
 
-
-const addbutton = () => {
-    const tempObject = {};
-    tempObject.Id = currentLength;
-    tempObject.Title = bookInput.value;
-    tempObject.Author = authorInput.value;
-    tempObject.Lender = currentUser;
-    console.log(tempObject);
-    books.push(tempObject);
-    mainTable.innerHTML = initialTableContent;
-    displayDetails();
-    displayAdd();
+const borrowBtn = (click) => {
+    buildTable.rows[click].cells[5].innerHTML = `<button id="return" onclick="returnBtn(${click})" >Return</button>`;
+    buildTable.rows[click].cells[4].innerHTML = userId;
 }
-
-const returnFunction = () => {
-    books.forEach(function(book) {
-        if(currentUser === book.Borrower) {
-            book.Borrower = '';
-        }
-    })
-    mainTable.innerHTML = initialTableContent;
-    displayDetails();
-    displayAdd();
-}
-
-// mainTable.addEventListener('click', function(e) {
-//     let id;
-//     e.preventDefault();
-//     if(e.target.classList.contains('borrow-button')) {
-//         id = e.target.getAttribute('id');
-//     }
-//     //console.log(id);
-// })

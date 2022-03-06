@@ -157,20 +157,12 @@ const addbutton = () => {
     }
 }
 
-const returnFunction = (clicked) => {
-    books.forEach(function(book) {
-        if(book.Id === clicked) {
-            book.Borrower = ''
-        }
-    })
+const returnFunction = (val) => {
+    books[val-1].Borrower = '';
     tableInitialData();
 }
 
-const borrowFunction = (clicked) => {
-    books.forEach(function(book) {
-        if(book.Id === clicked) {
-            book.Borrower = currentUser;
-            tableInitialData();
-        }
-    })
+const borrowFunction = (val) => {
+    books[val-1].Borrower = currentUser;
+    tableInitialData();
 }

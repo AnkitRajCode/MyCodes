@@ -10,5 +10,6 @@
         "Pattern.C": "cpp",
         "typeindex": "cpp",
         "typeinfo": "cpp"
-    }
+    },
+    "liveServer.settings.port": 5501
 }
