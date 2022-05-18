@@ -84,3 +84,59 @@ let nol: 0 | 1 | -1;
 directions = 'EAST';
 console.log(directions.length);
 // cannot have any value appart from which are declared
+
+//control flow analysis
+// narrowing , static type check
+// let a :string | number;
+
+// if( typeof a === string){
+//     console.log('string')
+// }
+
+function padLeft(padding: number| string, input: string){
+    if(typeof padding === 'number'){
+        return " ".repeat(padding)+input;
+    }
+    console.log(padding.length);
+    return padding = input;
+}
+
+interface Shape{
+    kind: "circle" | "square" ;
+    radius?: number;
+    sideLength?: number;
+}
+
+//non-null assertion
+
+// function getArea(shape: Shape){
+
+// }
+
+function printToConsole(s: string , a?: number):string{
+    return s;
+}
+
+// function grreter(fn:(a:string)=>void){
+//     fn('hello world')
+// }
+//can be written like this also
+// type GreeFunction = (a:string)=>void;
+// function grreter(fn: GreeFunction){
+//     fn('hello world')
+// }
+
+//fn.description
+// call signatures
+type GreeFunction1 = (a:string)=>void;
+type GreeFunction = {
+    description :string;
+    noOfTimesCalled:number;
+    (someArg: string):void; //it is same as (a:string)=>void;
+}
+function grreter(fn: GreeFunction){
+   console.log(fn.description + "returned" +fn("hello world"));
+console.log("called",fn.noOfTimesCalled);
+}
+
+
