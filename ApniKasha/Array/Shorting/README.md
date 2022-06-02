@@ -42,7 +42,7 @@
 </tr>
 </table>
 
-<img src="https://imgur.com/1usiRlQ.png"/>
+<img src="https://imgur.com/1usiRlQ.png" width="400px" />
 
 
 <br>
@@ -50,11 +50,11 @@
 ## Bubble Sort
 > Reapetedly swap two adjacent elements if they are in wrong order.
 
-<img src="https://imgur.com/jeHSFTG.png"/>
+<img src="https://imgur.com/jeHSFTG.png" width="400px" />
 
 > For getting sorting array from this we have to do n-1 iterations before we get our sorted Array.
 
-<img src="https://imgur.com/GZLQK5H.png"/>
+<img src="https://imgur.com/GZLQK5H.png" width="400px" />
 
 1<sup>st</sup> iteration = n-1<br>
 2<sup>nd</sup> iteration = n-2<br>
