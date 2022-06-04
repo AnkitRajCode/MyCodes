@@ -60,3 +60,8 @@
 2<sup>nd</sup> iteration = n-2<br>
 and so on ...<br>
 so if there is i<sup>th</sup> iteration i.e. n-i tak
+
+## Insertion Sort
+> Insert an element from unsorted array to its correct position in sorted array.
+
+ 

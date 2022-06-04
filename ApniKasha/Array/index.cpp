@@ -2,7 +2,7 @@
 using namespace std;
 
 int main(){
-    int n,key;
+    int n;
     
     cout<<"Enter size of array: ";
     cin>>n;
@@ -13,21 +13,20 @@ int main(){
         cin>>arr[i];
     }
 
-    int counter = 1;
-    while(counter<n){
-        for(int i=0;i<n-counter;i++){
-            if(arr[i]>arr[i+1]){
-                int temp = arr[i];
-                arr[i] = arr[i+1];
-                arr[i+1] = temp;
-            }
+    int count = 1 ;
+    int result =0;
+    while (count<=n)
+    {
+        int current=0;
+        for(int i=0; i<count; i++){
+            current = arr[i]+current;
         }
-        counter++;
+        cout<<current<<endl;
+        result = result + current;
+        count++;
     }
+    cout<<result;
     
-    for(int i=0;i<n;i++){
-        cout<<arr[i]<<" ";
-    }cout<<endl;
 
     return 0;
 }
