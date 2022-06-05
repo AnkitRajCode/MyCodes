@@ -13,20 +13,16 @@ int main(){
         cin>>arr[i];
     }
 
-    int count = 1 ;
-    int result =0;
-    while (count<=n)
-    {
-        int current=0;
-        for(int i=0; i<count; i++){
-            current = arr[i]+current;
-        }
-        cout<<current<<endl;
-        result = result + current;
-        count++;
-    }
-    cout<<result;
-    
+    int more = INT_MIN;
 
-    return 0;
+    for(int i=0; i<n; i++){
+        int current=0;
+        for(int j=i; j<n; j++){
+            current = arr[j]+current;
+            cout<<current<<endl;
+            more = max(current, more);
+        }
+    }
+
+    cout<<more<<" answer"<<endl;
 }

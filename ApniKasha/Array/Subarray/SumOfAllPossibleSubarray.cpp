@@ -36,8 +36,16 @@ int main(){
             cout<<current<<endl;
         }
     }
-    
-    
 
+    // FIXME: interview bit questions
+    // int Solution::maxSubArray(const vector<int> &A) {
+    // for(int i=0; i<n1; i++){
+    //     int current=0;
+    //     for(int j=i; j<n1; j++){
+    //         current = A[j] + current; 
+    //     }
+    //     cout<<current<<endl;
+    // }
+    
     return 0;
 }
