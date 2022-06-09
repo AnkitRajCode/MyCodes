@@ -6,29 +6,30 @@
 using namespace std;
 
 int main(){
-    int n,m,x;
+    int n,x;
     
     cout<<"Enter size of array: ";
     cin>>n;
-    vector<int> a;
+    vector<int> A;
 
     cout<<"Enter Elements: ";
     for(int i=0; i<n; i++){
         cin>>x;
-        a.push_back(x);
+        A.push_back(x);
     }
 
-    cout<<"no of student: ";
-    cin>>m;
+    sort(A.begin(),A.end());
+    int check = 0 ;
+    int ans = 0;
+    for(int i=0; i<A.size(); ++i){
+        if(A[i]==A[i+1]){
+            check = A[i];
+        }
+        else if(A[i+1]!=A[i]+1){
+            ans = A[i+1]+1;
+        }
+    };
 
-    int diff=0;
-    int mindiff=INT_MAX;
-    sort(a.begin(),a.end());
-    
-    for(int i=0; i<n-m;i++){
-        diff = a[i+m-1]-a[i];
-        mindiff = min(diff,mindiff);
-    }
-    
-    cout<<mindiff<<endl;
+    cout<<check<<"space"<<ans<<endl;
+
 }
