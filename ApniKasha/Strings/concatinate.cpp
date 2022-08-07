@@ -8,11 +8,17 @@ int main(){
      string s2 = "ily";
 
      s1.append(s2);
-    //  s1 = s1 + s2;
+    cout<< s1 <<endl;
+    // OUTPUT: family
+
+     s1 = s1 + s2;
      cout<< s1 <<endl;
-    //  cout<< s1 + s2 <<endl;
+    // OUTPUT: family
+
+     cout<< s1 + s2 <<endl;
+    // OUTPUT: family
 
     cout << s1[1] <<endl; //charater access
-
+    // OUTPUT: a
     return 0;
 }
