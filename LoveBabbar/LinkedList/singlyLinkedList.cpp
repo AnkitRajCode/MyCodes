@@ -24,7 +24,7 @@ class Node{
     }
 };
 
-// Insert At Head
+//TOPIC:  Insert At Head
 void insertAtHead(Node* &head, int d){
     //new node create
     Node* temp = new Node(d);
@@ -33,7 +33,7 @@ void insertAtHead(Node* &head, int d){
     head = temp;
 }
 
-//Insert At Tail
+//TOPIC:  Insert At Tail
 void insertAtTail(Node* &tail, int d){
     //new node create
     Node* temp = new Node(d);
@@ -42,7 +42,7 @@ void insertAtTail(Node* &tail, int d){
     tail = tail -> next;
 }
 
-//Insert At Position
+//TOPIC: Insert At Position
 void insertAtPosition(Node* &tail,Node* &head, int position, int d){
     // insert at start
     if(position==1){
@@ -70,7 +70,7 @@ void insertAtPosition(Node* &tail,Node* &head, int position, int d){
     temp->next = nodeToInsert;
 }
 
-//deletion
+//TOPIC: deletion
 void deleteNode(int position, Node* &head){
     //deleting first or start node
     if(position ==1){
@@ -96,7 +96,7 @@ void deleteNode(int position, Node* &head){
     }
 }
 
-//print a node
+//TOPIC: print a node
 void print(Node* &head){
     Node* temp = head;
 

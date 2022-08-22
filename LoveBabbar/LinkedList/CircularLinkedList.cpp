@@ -23,7 +23,7 @@ class Node{
 };
 
 //insert Node in list
-// NOTE: There is no any head pointer in list, there is only tail pointer in the list
+// TOPIC: There is no any head pointer in list, there is only tail pointer in the list
 void insertNode(Node* &tail, int element, int d){
 
     //empty list
@@ -47,7 +47,7 @@ void insertNode(Node* &tail, int element, int d){
     }
 }
 
-//NOTE: Print
+//TOPIC: Print
 void print(Node* tail){
 
     Node* temp = tail;
@@ -65,7 +65,7 @@ void print(Node* tail){
     cout << endl;
 }
 
-// NOTE: delete node from list
+// TOPIC: delete node from list
 void deleteNode(Node* &tail, int value){
     //empty list
     if(tail == NULL){

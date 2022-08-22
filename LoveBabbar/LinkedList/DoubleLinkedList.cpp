@@ -23,7 +23,7 @@ class Node{
     }
 };
 
-// NOTE: traversing a linked list i.e. print
+// TOPIC: traversing a linked list i.e. print
 void print (Node* head,Node* tail){
     Node* temp = head;
 
@@ -36,7 +36,7 @@ void print (Node* head,Node* tail){
     cout<< "tail " << tail -> data << endl <<endl;
 }
 
-//NOTE: Gives length of linked list 
+//TOPIC: Gives length of linked list 
 int getLength(Node* head){
     int len = 0;
     Node* temp = head;
@@ -48,7 +48,7 @@ int getLength(Node* head){
     return len;
 }
 
-//NOTE: Insert at head
+//TOPIC: Insert at head
 void insertAtHead(Node* &head, Node* &tail, int d){
     //agar linked list empty hai too
     if(head == NULL){
@@ -68,7 +68,7 @@ void insertAtHead(Node* &head, Node* &tail, int d){
     }
 }
 
-//NOTE: Insert at Tail
+//TOPIC: Insert at Tail
 void insertAtTail(Node* &tail, Node* &head,int d){
     //agar linked list empty hai too
     if(tail == NULL){
@@ -87,7 +87,7 @@ void insertAtTail(Node* &tail, Node* &head,int d){
 
 }
 
-//NOTE: Insert at Position
+//TOPIC: Insert at Position
 void insertAtPosition(Node* &head,Node* &tail, int position, int d){
     //insert at start
     if(position == 1){
